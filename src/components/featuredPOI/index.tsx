@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Typography from '@material-ui/core/Typography';
 import { Box } from '@material-ui/core';
 import PointOfInterestCard from '../pointOfInterestCard';
 import { PointOfInterest } from '../../types/pointOfInterest';
+import { fetchFeatured } from '../../repo/pointOfInterest';
 
-interface Props {
-  pois: PointOfInterest[];
-}
+export default function FeaturedPoi() {
+  const [poiData, setPoiData] = useState<PointOfInterest[]>([]);
 
-export default function FeaturedPoi({ pois }: Props) {
+  useEffect(() => {
+    fetchFeatured().then((resp: any) => {
+      setPoiData(resp.data);
+    });
+  }, []);
+
   return (
     <Box display="flex">
       <Typography>Featured</Typography>
       <Box display="flex" alignItems="center">
-        {pois && pois.map((poi, index) => <PointOfInterestCard key={index} poi={poi} />)}
+        {poiData.length > 0 && poiData.map((poi, index) => <PointOfInterestCard key={index} poi={poi} />)}
       </Box>
     </Box>
   );
