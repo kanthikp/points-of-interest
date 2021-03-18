@@ -17,9 +17,9 @@ export default function FeaturedPoi() {
 
   return (
     <Box display="flex">
-      <Typography>Featured</Typography>
+      <Typography color="primary">Featured</Typography>
       <Box display="flex" alignItems="center">
-        {poiData.length > 0 && poiData.map((poi, index) => <PointOfInterestCard key={index} poi={poi} />)}
+        {/* {poiData.length > 0 && poiData.map((poi, index) => <PointOfInterestCard key={index} poi={poi} />)} */}
       </Box>
     </Box>
   );

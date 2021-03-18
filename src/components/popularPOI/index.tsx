@@ -30,14 +30,14 @@ interface Props {
 
 export default function PopularPOI({ pois }: Props) {
   return (
-    <Box>
-      <Typography>Popular around you</Typography>
+    <Box display="flex" justifyContent="flex-start" flexDirection="column">
+      <Typography variant="body1" color="textPrimary">
+        Popular around you
+      </Typography>
       <Carousel
-        showDots={true}
+        // showDots={true}
         responsive={responsive}
         ssr={true} // means to render carousel on server-side.
-        // autoPlay={this.props.deviceType !== 'mobile' ? true : false}
-        // autoPlaySpeed={1000}
         keyBoardControl={true}
         customTransition="all .5"
         transitionDuration={500}
@@ -46,7 +46,7 @@ export default function PopularPOI({ pois }: Props) {
         // deviceType={this.props.deviceType}
         // dotListClass="custom-dot-list-style"
         // itemClass="carousel-item-padding-40-px"
-        partialVisbile={true}
+        partialVisible={true}
       >
         {pois && pois.map((poi, index) => <PointOfInterestCard key={index} poi={poi} />)}
       </Carousel>

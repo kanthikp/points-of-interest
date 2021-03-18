@@ -1,6 +1,5 @@
 import React from 'react';
-import { TextField, InputAdornment, Box } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
+import { TextField, Box } from '@material-ui/core';
 
 interface Props {
   onChange: (value: string) => void;
@@ -11,15 +10,8 @@ export default function Search({ onChange }: Props) {
       <TextField
         fullWidth
         variant="outlined"
-        placeholder="Search"
+        placeholder="Search for..."
         size="small"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <SearchIcon />
-            </InputAdornment>
-          )
-        }}
         onChange={(e) => onChange(e.target.value)}
       ></TextField>
     </Box>

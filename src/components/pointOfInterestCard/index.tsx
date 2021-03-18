@@ -8,12 +8,14 @@ import Typography from '@material-ui/core/Typography';
 import { PointOfInterest } from '../../types/pointOfInterest';
 import LocationIcon from '@material-ui/icons/LocationOn';
 import { Box } from '@material-ui/core';
+import colors from '../../themes/colors';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 275
-  },
-  style: { paddingLeft: 2 }
+    maxWidth: 275,
+    style: { background: `${colors.LIGHT_BACKGROUND_1}` }
+  }
+  // style: { paddingLeft: 2, background: `${colors.LIGHT_BACKGROUND_1}` }
 });
 interface Props {
   poi: PointOfInterest;
@@ -27,14 +29,18 @@ export default function PointOfInterestCard({ poi }: Props) {
       <CardActionArea>
         <CardMedia component="img" alt="POI" height="150" image={poi.img} title={poi.title} />
         <CardContent>
-          <Typography gutterBottom variant="body2" component="h2">
-            <strong>{poi.title}</strong>
-          </Typography>
-          <Box display="flex" alignItems="center" flexWrap="wrap">
-            <LocationIcon />
-            <Typography variant="body2" color="textSecondary" component="p">
-              {poi.location}
-            </Typography>
+          <Box>
+            <Box display="flex" alignItems="left" flexWrap="wrap">
+              <Typography gutterBottom variant="body2" component="h2" color="textPrimary">
+                <strong>{poi.title}</strong>
+              </Typography>
+            </Box>
+            <Box display="flex" alignItems="left" flexWrap="wrap">
+              <LocationIcon />
+              <Typography variant="body2" color="textSecondary" component="p">
+                {poi.location}
+              </Typography>
+            </Box>
           </Box>
         </CardContent>
       </CardActionArea>
