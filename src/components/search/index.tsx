@@ -6,7 +6,7 @@ interface Props {
 }
 export default function Search({ onChange }: Props) {
   return (
-    <Box width={0.5} pb={2} px={2}>
+    <Box width={0.5} m={1}>
       <TextField
         fullWidth
         variant="outlined"

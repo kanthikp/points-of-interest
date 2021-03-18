@@ -12,12 +12,25 @@ export default createMuiTheme({
     text: {
       primary: Colors.LIGHT_FONT_PRIMARY,
       secondary: Colors.LIGHT_FONT_SECONDARY
-    },
-    error: {
-      main: '#d0021b'
     }
   },
   typography: {
     fontFamily: 'sans-serif'
+  },
+  overrides: {
+    MuiInputBase: {
+      root: {
+        backgroundColor: `${Colors.LIGHT_BACKGROUND_PANEL}`,
+        '&:focus': {
+          borderColor: '#d0021b'
+        }
+      }
+    },
+
+    MuiContainer: {
+      root: {
+        backgroundColor: `${Colors.LIGHT_BACKGROUND}`
+      }
+    }
   }
 });
