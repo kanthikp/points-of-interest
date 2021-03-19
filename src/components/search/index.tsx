@@ -13,6 +13,7 @@ export default function Search({ onChange }: Props) {
         placeholder="Search for..."
         size="small"
         onChange={(e) => onChange(e.target.value)}
+        data-testid="search-text"
       ></TextField>
     </Box>
   );

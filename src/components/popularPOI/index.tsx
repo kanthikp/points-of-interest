@@ -34,17 +34,24 @@ export default function PopularPOI({ pois }: Props) {
       <Typography variant="body1" color="textPrimary">
         <strong>Popular around</strong> you
       </Typography>
-      <Carousel
-        responsive={responsive}
-        ssr={true}
-        keyBoardControl={true}
-        customTransition="all .5"
-        transitionDuration={500}
-        containerClass="carousel-container"
-        centerMode={true}
-      >
-        {pois && pois.map((poi, index) => <PointOfInterestCard key={index} poi={poi} />)}
-      </Carousel>
+      {pois.length === 0 ? (
+        <Typography variant="body1" color="textPrimary">
+          No points of interest found.
+        </Typography>
+      ) : (
+        <Carousel
+          responsive={responsive}
+          ssr={true}
+          keyBoardControl={true}
+          customTransition="all .5"
+          transitionDuration={500}
+          containerClass="carousel-container"
+          centerMode={true}
+          data-testid="carousel"
+        >
+          {pois && pois.map((poi, index) => <PointOfInterestCard key={index} poi={poi} />)}
+        </Carousel>
+      )}
     </Box>
   );
 }
